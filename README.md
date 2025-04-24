@@ -40,6 +40,32 @@ google-chrome --app="file:///Users/yourname/path/to/video.html"
 
 This opens the page in a borderless chrome window.
 
+## 🎛️ How to Set which Source is Default in Chrome
+
+To make the default camera automatically load when opening the page), follow these steps:
+
+### 🔧 Set which source is the default in Chrome
+
+1. Open Chrome
+2. Go to `chrome://settings/content/camera` (you can paste it directly into the address bar)
+3. In the **Camera** dropdown at the top, select the output source you would like to use
+4. Close the settings tab — changes are saved automatically
+
+📌 This ensures that when any page requests camera access (like `video.html`), will use the output source you have selected.
+
+### 🔐 Permissions
+
+The first time you open the page, Chrome will ask for camera permission:
+
+- Click **"Allow"** when prompted
+- This only needs to be done once per site or file
+
+If you blocked it accidentally:
+- Go back to `chrome://settings/content/camera`
+- Click "Sites that can ask to use your camera" → "Add" your domain or `file://` path
+
+---
+
 ## 🌐 Hosting It on Your Website
 
 Upload video.html to your web server
