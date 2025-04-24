@@ -92,7 +92,7 @@ start chrome --app="https://yourdomain.com/video.html"
 ## 🧰 Requirements
 - OBS Studio with Virtual Camera enabled
 - Google Chrome for best kiosk support
-- (Optional) A sweb server or hosting provider if you want to serve it online
+- (Optional) A web server or hosting provider if you want to serve it online
 
 ## 🔐 Privacy Notice
 
