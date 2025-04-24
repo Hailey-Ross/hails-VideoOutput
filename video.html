@@ -19,8 +19,8 @@
 
     .container {
       display: flex;
-      justify-content:center;
-      align-items:center;
+      justify-content: center;
+      align-items: center;
       width: 100vw;
       height: 100vh;
       padding: 1vw;
@@ -32,6 +32,47 @@
       max-height: 100%;
       object-fit: contain;
       border-radius: 3px;
+    }
+
+    #startupOverlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+      opacity: 1;
+      transition: opacity 0.6s ease;
+    }
+
+    #startupOverlay.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #startupOverlay .spinner {
+      width: 48px;
+      height: 48px;
+      border: 5px solid rgba(255, 255, 255, 0.2);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 1em;
+    }
+
+    #startupOverlay p {
+      font-family: sans-serif;
+      color: white;
+      font-size: 1em;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
     }
 
     #error {
@@ -71,11 +112,22 @@
       color: #00adee;
       text-decoration: underline;
     }
+
+    #cameraSelect {
+      margin-top: 1em;
+      padding: 0.4em;
+      font-size: 1em;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <video id="video" autoplay muted playsinline></video>
+  </div>
+
+  <div id="startupOverlay">
+    <div class="spinner"></div>
+    <p>Loading camera...</p>
   </div>
 
   <div id="error" style="display: none;">
@@ -88,11 +140,19 @@
     <p>Press <strong>H</strong> to toggle this help screen.</p>
     <p>This page auto-hides the mouse after 2 seconds of inactivity.</p>
     <p>Source available on <a href="https://github.com/Hailey-Ross/hails-VideoOutput" target="_blank">GitHub</a></p>
+    <p><label for="cameraSelect">🎥 Select Camera:</label>
+    <select id="cameraSelect">
+      <option disabled selected value="">Select a source...</option>
+    </select></p>
   </div>
 
   <script>
     const videoElement = document.getElementById('video');
     const helpMenu = document.getElementById('helpMenu');
+    const cameraSelect = document.getElementById('cameraSelect');
+    const errorBox = document.getElementById('error');
+    const startupOverlay = document.getElementById('startupOverlay');
+    let currentStream;
 
     let hideCursorTimer;
     function resetCursorTimer() {
@@ -127,14 +187,58 @@
       }
     }
 
-    navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-      .then(stream => {
-        videoElement.srcObject = stream;
-      })
-      .catch(err => {
-        document.getElementById('error').style.display = 'block';
-        console.error('Camera error:', err);
-      });
+    async function getCamerasAndPopulate() {
+      try {
+        const tempStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+        const selectedDeviceId = tempStream.getVideoTracks()[0].getSettings().deviceId;
+        tempStream.getTracks().forEach(track => track.stop());
+
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const videoDevices = devices.filter(device => device.kind === 'videoinput');
+
+        cameraSelect.innerHTML = `<option disabled value="">Select a camera...</option>`;
+        videoDevices.forEach((device, index) => {
+          const option = document.createElement('option');
+          option.value = device.deviceId;
+          option.text = device.label || `Camera ${index + 1}`;
+          cameraSelect.appendChild(option);
+        });
+
+        cameraSelect.value = selectedDeviceId;
+        startCamera(selectedDeviceId);
+      } catch (err) {
+        errorBox.style.display = 'block';
+        startupOverlay.classList.add('hidden');
+        console.error('Error accessing cameras:', err);
+      }
+    }
+
+    cameraSelect.addEventListener('change', () => {
+      if (cameraSelect.value) {
+        startCamera(cameraSelect.value);
+      }
+    });
+
+    function startCamera(deviceId) {
+      if (currentStream) {
+        currentStream.getTracks().forEach(track => track.stop());
+      }
+
+      navigator.mediaDevices.getUserMedia({ video: { deviceId: { exact: deviceId } }, audio: false })
+        .then(stream => {
+          currentStream = stream;
+          videoElement.srcObject = stream;
+          videoElement.play().catch(err => console.error('Play error:', err));
+          startupOverlay.classList.add('hidden');
+        })
+        .catch(err => {
+          errorBox.style.display = 'block';
+          startupOverlay.classList.add('hidden');
+          console.error('Camera error:', err);
+        });
+    }
+
+    getCamerasAndPopulate();
   </script>
 </body>
 </html>
