@@ -54,8 +54,8 @@ start chrome --app="https://yourdomain.com/video.html"
 ```
 ##### 📌 Note: This page is local-only. Visitors will only see their own webcam feed — it does not stream or broadcast.
 
-## 🖥️ Test Server
-Users can use the `launch.bat` file to use the test server I am hosting.
+## 🖥️ Ez-Mode
+Users can use the `launch.bat` file to use the test file I am hosting.
 
 Test URL:
 
