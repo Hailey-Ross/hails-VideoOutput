@@ -42,24 +42,31 @@ This opens the page in a borderless chrome window.
 
 ## 🌐 Hosting It on Your Website
 
-    Upload obs-cam.html to your web server
+Upload video.html to your web server
 
-    Access it from:
-    https://yourdomain.com/video.html
+Access it from:
+https://yourdomain.com/video.html
 
-    Use the same Chrome --app launch method with the live URL:
+Use the same Chrome --app launch method with the live URL:
 
-    start chrome --app="https://yourdomain.com/video.html"
+```bash
+start chrome --app="https://yourdomain.com/video.html"
+```
+##### 📌 Note: This page is local-only. Visitors will only see their own webcam feed — it does not stream or broadcast.
 
-### 📌 Note: This page is local-only. Visitors will only see their own webcam feed — it does not stream or broadcast.
+## 🖥️ Test Server
+Users can use the `launch.bat` file to use the test server I am hosting.
+
+Test URL:
+
+```https://test.hails.cc/cam.html```
+
+##### 📌 Note: This page is local-only. Visitors will only see their own webcam feed — it does not stream or broadcast.
 
 ## 🧰 Requirements
-
-    OBS Studio with Virtual Camera enabled
-
-    Google Chrome for best kiosk support
-
-    (Optional) A static web server or hosting provider if you want to serve it online
+- OBS Studio with Virtual Camera enabled
+- Google Chrome for best kiosk support
+- (Optional) A sweb server or hosting provider if you want to serve it online
 
 ## 🔐 Privacy Notice
 
