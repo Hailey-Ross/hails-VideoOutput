@@ -51,7 +51,7 @@ To make the default camera automatically load when opening the page), follow the
 3. In the **Camera** dropdown at the top, select the output source you would like to use
 4. Close the settings tab — changes are saved automatically
 
-📌 This ensures that when any page requests camera access (like `video.html`), will use the output source you have selected.
+##### 📌 This ensures that when any page requests camera access (like `video.html`), will use the output source you have selected.
 
 ### 🔐 Permissions
 
@@ -66,6 +66,15 @@ If you blocked it accidentally:
 
 ---
 
+## 🖥️ Ez-Mode
+Users can use the `launch.bat` file to use the test file I am hosting.
+
+Test URL:
+
+```https://test.hails.cc/cam.html```
+
+##### 📌 Note: This page is local-only. Visitors will only see their own webcam feed — it does not stream or broadcast.
+
 ## 🌐 Hosting It on Your Website
 
 Upload video.html to your web server
@@ -78,15 +87,6 @@ Use the same Chrome --app launch method with the live URL:
 ```bash
 start chrome --app="https://yourdomain.com/video.html"
 ```
-##### 📌 Note: This page is local-only. Visitors will only see their own webcam feed — it does not stream or broadcast.
-
-## 🖥️ Ez-Mode
-Users can use the `launch.bat` file to use the test file I am hosting.
-
-Test URL:
-
-```https://test.hails.cc/cam.html```
-
 ##### 📌 Note: This page is local-only. Visitors will only see their own webcam feed — it does not stream or broadcast.
 
 ## 🧰 Requirements
