@@ -19,8 +19,8 @@
 
     .container {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      justify-content:center;
+      align-items:center;
       width: 100vw;
       height: 100vh;
       padding: 1vw;
@@ -43,16 +43,56 @@
       left: 50%;
       transform: translate(-50%, -50%);
     }
+
+    #helpMenu {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      font-family: sans-serif;
+      padding: 2em;
+      box-sizing: border-box;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 10;
+    }
+
+    #helpMenu.visible {
+      display: flex;
+    }
+
+    #helpMenu a {
+      color: #00adee;
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <video id="video" autoplay muted playsinline></video>
   </div>
-  <div id="error" style="display: none;">Could not access camera. Is the video output setup correctly in Chrome? Go to your Chrome Camera Settings and define a default source.</div>
+
+  <div id="error" style="display: none;">
+    Could not access camera. Is the video output setup correctly in Chrome? Go to your Chrome Camera Settings and define a default source.
+  </div>
+
+  <div id="helpMenu">
+    <h2>📖 Help</h2>
+    <p>Press <strong>F</strong> to toggle fullscreen.</p>
+    <p>Press <strong>H</strong> to toggle this help screen.</p>
+    <p>This page auto-hides the mouse after 2 seconds of inactivity.</p>
+    <p>Source available on <a href="https://github.com/Hailey-Ross/hails-VideoOutput" target="_blank">GitHub</a></p>
+  </div>
 
   <script>
     const videoElement = document.getElementById('video');
+    const helpMenu = document.getElementById('helpMenu');
 
     let hideCursorTimer;
     function resetCursorTimer() {
@@ -67,8 +107,11 @@
     resetCursorTimer();
 
     document.addEventListener('keydown', (e) => {
-      if (e.key.toLowerCase() === 'f') {
+      const key = e.key.toLowerCase();
+      if (key === 'f') {
         toggleFullscreen();
+      } else if (key === 'h') {
+        helpMenu.classList.toggle('visible');
       }
     });
 
