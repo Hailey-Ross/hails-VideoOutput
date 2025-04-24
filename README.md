@@ -67,5 +67,5 @@ This tool uses getUserMedia() to access your webcam. No data is sent to a server
 This project is licensed under the MIT License.
 
 ## 🙋‍♀️ Author
-Created by Hailey
-Inspired by a need for simplicity and screen-sharing style.
+Created by Hailey  
+Inspired by a need for simplicity and screen-sharing style.  
