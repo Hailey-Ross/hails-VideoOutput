@@ -34,7 +34,9 @@ start chrome --app="file:///H:/path/to/video.html"
 
 macOS / Linux Terminal:
 
-google-chrome --app="file:///Users/yourname/path/to/obs-cam.html"
+```bash
+google-chrome --app="file:///Users/yourname/path/to/video.html"
+```
 
 This opens the page in a borderless chrome window.
 
