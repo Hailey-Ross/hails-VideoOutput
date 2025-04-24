@@ -18,8 +18,8 @@ A minimalist fullscreen HTML page that displays your **OBS Virtual Camera** outp
 ### 1. Clone or Download the Project
 
 ```bash
-git clone https://github.com/yourusername/obs-virtualcam-wallpaper.git
-cd obs-virtualcam-wallpaper
+git clone https://github.com/Hailey-Ross/hails-VideoOutput.git
+cd hails-VideoOutput
 ```
 
 Or manually download the video.html file. 
