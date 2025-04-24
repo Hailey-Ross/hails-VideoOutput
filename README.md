@@ -7,7 +7,7 @@ A minimalist fullscreen HTML page that displays your **OBS Virtual Camera** outp
 - 🎥 Clean centered video with light padding
 - 🖱️ Auto-hiding mouse cursor (after 2 seconds of inactivity)
 - ⌨️ Fullscreen toggle using the `F` key
-- 📝 Help message toggle using the `H` key
+- 📝 Help message & source selection toggle using the `H` key
 - 🚫 No browser UI — no address bar, tabs, or title bar (when using Chrome `--app` mode)
 - 🔒 Fully local and private — webcam feed stays on your machine
 - 🌐 Optional: Host online for cross-device access
