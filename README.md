@@ -33,7 +33,7 @@ Windows .bat file:
 start chrome --app="https://test.hails.cc/cam.html"
 ```
 
-Linux Terminal:
+Linux shell file:
 *Create a bash file with the following contents*
 ```bash
 #!/bin/bash
@@ -75,7 +75,7 @@ If you blocked it accidentally:
 ---
 
 ## 🖥️ Ez-Mode
-Users can use the `launch.bat` file to use the test file I am hosting.
+Users can use the `launch.bat` or `launch.sh` file to use the test file I am hosting.
 
 Test URL:
 
