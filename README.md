@@ -26,20 +26,27 @@ cd hails-VideoOutput
 Or manually download the video.html file. 
  
 ### 2. Launch in Chrome (Recommended)
-Windows .bat file:
 
+Windows .bat file:  
 ```bash
 @echo off
-start chrome --app="file:///H:/path/to/video.html"
+start chrome --app="https://test.hails.cc/cam.html"
 ```
 
-macOS / Linux Terminal:
-
+Linux Terminal:
+*Create a bash file with the following contents*
 ```bash
-google-chrome --app="file:///Users/yourname/path/to/video.html"
+#!/bin/bash
+google-chrome --app="https://test.hails.cc/cam.html"
 ```
 
-This opens the page in a borderless chrome window.
+Make the bash file executable:  
+`chmod +x filename.sh`  
+
+Run your new bash file:  
+`./rilename.sh`  
+
+Either path will open the page in a borderless chrome window.
 
 ## 🎛️ How to Set which Source is Default in Chrome
 
