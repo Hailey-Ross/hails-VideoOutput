@@ -1,6 +1,6 @@
 # hails-VideoOutput
 
-A minimalist fullscreen HTML page that displays your **OBS Virtual Camera** output, designed for use as a browser overlay, kiosk display, or live desktop background.
+A minimalist fullscreen HTML page that displays your various forms of video output, designed for use as a browser overlay, kiosk display, or even a live desktop background.
 
 ## ✨ Features
 
