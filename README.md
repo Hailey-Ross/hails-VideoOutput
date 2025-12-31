@@ -44,7 +44,7 @@ Make the bash file executable:
 `chmod +x filename.sh`  
 
 Run your new bash file:  
-`./rilename.sh`  
+`./filename.sh`  
 
 Either path will open the page in a borderless chrome window.
 
