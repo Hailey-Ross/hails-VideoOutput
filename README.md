@@ -81,7 +81,7 @@ Test URL:
 
 ```https://test.hails.cc/cam.html```
 
-##### 📌 Note: This page is local-only. Visitors will only see their own webcam feed — it does not stream or broadcast.
+##### 📌 Note: This page is local-only. Visitors will only see their own webcam feed, it does not stream or broadcast.
 
 ## 🌐 Hosting It on Your Website
 
@@ -95,7 +95,7 @@ Use the same Chrome --app launch method with the live URL:
 ```bash
 start chrome --app="https://yourdomain.com/video.html"
 ```
-##### 📌 Note: This page is local-only. Visitors will only see their own webcam feed — it does not stream or broadcast.
+##### 📌 Note: This page is local-only. Visitors will only see their own webcam feed, it does not stream or broadcast.
 
 ## 🧰 Requirements
 - OBS Studio with Virtual Camera enabled
@@ -104,7 +104,7 @@ start chrome --app="https://yourdomain.com/video.html"
 
 ## 🔐 Privacy Notice
 
-This tool uses getUserMedia() to access your webcam. No data is sent to a server — the video stays on your machine and in your browser only.
+This tool uses getUserMedia() to access your webcam. No data is sent to a server, the video stays on your machine and in your browser only.
 
 ## 📄 License
 This project is licensed under the MIT License.
